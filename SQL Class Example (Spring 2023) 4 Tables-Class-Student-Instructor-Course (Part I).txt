@@ -1,0 +1,61 @@
+= = = IF YOU NEED TO DELETE THE TABLES = = = 
+ 
+(1) 
+Drop Table class;    {CHILD TALBE ¨C DROP CHILD FIRST} 
+
+(2)
+Drop Table student;
+Drop Table instructor;
+Drop Table course;
+
+ = = = = = = = = = = = 
+
+drop table class;
+drop table student;
+drop table instructor;
+drop table course;
+
+= = = CREATE TABLE FROM SCRATCH = = =
+
+Create table STUDENT 
+(ID 		varchar2(7) 	not null 	primary key,
+ Name 		varchar2(10) 	not null,
+ Age 		integer, 
+ Address 	varchar2(15),
+ GPA 		number(3,2)); 
+
+
+create table INSTRUCTOR 
+( Emp# varchar2(7) 	not null 	primary key,
+  Name varchar2(10) 	not null,
+  Rank   varchar2(11),
+  Dept   varchar2(10));
+
+
+create table COURSE 
+(Course# 	varchar2(7) 	not null 	primary key,
+ Credits 	number(2,1) 	not null,
+ Title 		varchar2(30));
+
+
+Create Table CLASS 
+(ENROLL# 	varchar2(8) not null 	primary key,
+ EMP# 		varchar2(7) not null,
+ SID 		varchar2(7) not null,
+ Course# 	varchar2(7) not null,
+ Time 		varchar2(8),
+ Room 		varChar2(10));
+
+
+Alter Table CLASS
+Add CONSTRAINT INSTRUCTOR_FK FOREIGN KEY (Emp#) REFERENCES INSTRUCTOR(Emp#);
+ 
+Alter Table CLASS
+Add CONSTRAINT STUDEN_FK FOREIGN KEY (SID) REFERENCES STUDENT(ID);
+ 
+Alter Table CLASS
+Add CONSTRAINT COURSE_FK FOREIGN KEY (Course#) REFERENCES COURSE(Course#);
+
+
+
+
