@@ -1,2 +1,0 @@
-#display
-print("Hello GitHub")
